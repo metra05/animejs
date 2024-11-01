@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <button onclick="generate();">generate</button>
+        <button onclick="circle();generate();" class="circleBtn">Circle | Square</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+    <script>
+        let container=document.querySelector('.container');
+        for(var i=0; i<=80; i++){
+            let blocks = document.createElement('div');
+            blocks.classList.add('block');
+            container.appendChild(blocks);
+        }
+
+        function circle(){
+            let circleBtn=document.querySelector('.circleBtn');
+            container.classList.toggle('circle');
+        }
+
+        function generate(){
+            anime({
+                targets:'.block',
+                translateX: function(){
+                    return anime.random (-700,700);
+                },
+                translateY: function(){
+                    return anime.random (-500,500);
+                },
+                scale: function(){
+                    return anime.random(1,5);
+                },
+
+            })
+        }
+        generate();
+    </script>
+</body>
+</html>
