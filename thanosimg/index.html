@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>thanos img</title>
+</head>
+<body>
+    <div class="container">
+
+    </div>
+   
+    <script>
+        let container = document.querySelector('.container');
+        for (var i=0; i<=400; i++ ) {
+            let block = document.createElement('div');
+            block.classList.add('block');
+            container.appendChild(block);
+        }
+
+        let block=document.querySelectorAll('.block');
+        let animation = anime.timeline({
+            targets:block,
+            easing:'easeInOutExpo',
+            loop:true
+        })
+
+        animation
+        .add({
+            scale:0,
+            translateX:function(){return anime.random(-360,2100);},
+            translateY:function(){return anime.random(-360,2100);},
+            rotate:function(){return anime.random(-360,360);},
+            duration:function(){return anime.random(500,3000);},
+
+
+        })
+    </script>
+</body>
+</html>

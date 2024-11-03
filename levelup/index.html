@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">Logo</a>
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Work</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </header>
+    <section>
+        <div class="content">
+            <h2>level up your website with <b>Anime.Js</b></h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat adipisci sint cupiditate impedit, omnis nemo, ducimus, exercitationem et error sunt voluptatum accusamus doloribus culpa dolores sit eaque eum! Optio, unde.</p>
+            <a href="#" class="bnt">Learn more</a>
+        </div>
+        <div class="container"></div>
+    </section>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+    <script>
+        let container = document.querySelector('.container');
+        for (let i=1; i<=100; i++){
+            let dot = document.createElement('div');
+            dot.classList.add('element');
+            container.appendChild(dot);
+        }
+
+        let dotAll = document.querySelectorAll('.element');
+        let animation = anime.timeline({
+            targets:dotAll,
+            easing:'easeInOutExpo',
+            loop:true,
+            delay:anime.stagger(100,{grid:[10,10], from:'center'})
+        }) 
+
+        animation
+        .add({
+            rotateZ:180,
+            duration:2500,
+        })
+
+    </script>
+</body>
+</html>
